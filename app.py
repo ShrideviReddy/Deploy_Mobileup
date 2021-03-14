@@ -152,12 +152,13 @@ def predict():
     prediction = model.predict(final_features)
 
     output = prediction[0]
+    output = round(output, 2)
     advice_head = 'Advice based on our analysis:'
     advice_first = '1. Make sure you include color and whether its locked or unlocked.'
     advice_second = '2. Include as much details as you can.'
     
 
-    return render_template('appui.html', prediction_text='Estimated Price:  {}'.format(output) + advice_head + advice_first + advice_second)
+    return render_template('appui.html', prediction_text='Estimated Price:  {}'.format(output) + '\n' + advice_head + '\n' + advice_first + '\n' + advice_second)
 
 @app.route('/results',methods=['POST'])
 def results():

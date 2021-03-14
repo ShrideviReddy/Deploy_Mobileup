@@ -157,7 +157,7 @@ def predict():
     advice_second = '2. Include as much details as you can.'
     
 
-    return render_template('appui.html', prediction_text='Estimated Price:  {}'.format(output), advice_head, advice_first, advice_second)
+    return render_template('appui.html', prediction_text='Estimated Price:  {}'.format(output) + advice_head + advice_first + advice_second)
 
 @app.route('/results',methods=['POST'])
 def results():
